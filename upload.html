@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FastAPI CSV Upload</title>
+</head>
+<body>
+    <h1>FastAPI CSV Upload</h1>
+    <p>Please select which column in the csv file contains name and age.</p>
+    <form action="/submit" method="post">
+        <label for="name">Name:</label>
+        <select name="name" id="name">
+            {% for column in columns %}
+            <option value="{{ loop.index0 }}">{{ column }}</option>
+            {% endfor %}
+        </select>
+        <label for="age">Age:</label>
+        <select name="age" id="age">
+            {% for column in columns %}
+            <option value="{{ loop.index0 }}">{{ column }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
